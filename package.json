@@ -1,0 +1,19 @@
+{
+  "name": "koa-elm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "koa",
+    "elm"
+  ],
+  "author": "Necis",
+  "license": "MIT",
+  "devDependencies": {
+    "koa": "^2.5.3",
+    "koa-session": "^5.9.0"
+  }
+}
