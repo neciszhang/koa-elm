@@ -1,11 +1,10 @@
-var router = require('koa-router')();
+const CityHandle= require('../controller/v1/cities');
+const router = require('koa-router')();
 
 router
-    .get('/', (ctx, next) => {
-        ctx.body = "Hello"
-    })
+    .get('/cities', CityHandle.getCity)
     .get('/a', (ctx, next) => {
         ctx.body = "Hello222"
     });
-    
+
 module.exports = router;
