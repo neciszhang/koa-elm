@@ -13,7 +13,11 @@
   "author": "Necis",
   "license": "MIT",
   "devDependencies": {
+    "chalk": "^2.4.1",
     "koa": "^2.5.3",
-    "koa-session": "^5.9.0"
+    "koa-history-api-fallback": "^0.1.3",
+    "koa-router": "^7.4.0",
+    "koa-session": "^5.9.0",
+    "koa-static": "^5.0.0"
   }
 }
