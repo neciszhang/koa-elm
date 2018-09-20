@@ -1,10 +1,12 @@
 const Koa = require('koa');
 const session = require('koa-session');
 const serve = require('koa-static');
-const chalk =require('chalk');
+const chalk = require('chalk');
 const history = require('koa-history-api-fallback');
 const config = require('./config/default');
-const log= console.log;
+const router = require('./routes/index');
+// import router from './routes/index.js'
+const log = console.log;
 
 
 
@@ -37,31 +39,14 @@ app.use(async (ctx, next) => {
     ctx.set('X-Powered-By', 'necis@tzjjtech.cn');
     await next();
 });
-app.use(ctx => {
-    if (ctx.path === '/favicon.ico') return;
 
-    let n = ctx.session.views || 0;
-    ctx.session.views = ++n;
-    ctx.body = n + 'views';
-})
-app.use(async (ctx, next) => {
-    await next();
-    const rt = ctx.response.get('X-Response-Time');
-    console.log(`${ctx.method} ${ctx.url} - ${rt}`)
-})
+// log(router);
+router(app);
+// app.use(router())
 
-app.use(async (ctx, next) => {
-    const start = Date.now();
-    await next();
-    const ms = Date.now() - start;
-    ctx.set("X-Response-Time", `${ms}ms`);
-})
-
-app.use(ctx => {
-    ctx.body = "Hello koa"
-});
 app.use(history());
 app.use(serve(__dirname + '/public'));
-app.listen(config.port,()=>{
+
+app.listen(config.port, () => {
     log(chalk.green(`成功监听端口:${config.port}`));
 });
