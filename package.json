@@ -14,6 +14,7 @@
   "author": "Necis",
   "license": "MIT",
   "devDependencies": {
+    "axios": "^0.18.0",
     "chalk": "^2.4.1",
     "cross-env": "^5.2.0",
     "koa": "^2.5.3",

@@ -12,6 +12,7 @@ const log = console.log;
 
 const app = new Koa();
 app.keys = ['some secret hurr'];
+// app.proxy = true;
 
 const CONFIG = {
     key: config.session.name + ':' + config.session.secret,
