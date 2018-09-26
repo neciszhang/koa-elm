@@ -1,5 +1,5 @@
 'use strict';
-const Cities= require("../../controller/v1/cities");
+const Cities = require("../../models/v1/cities");
 const AddressComponent = require("../../prototype/addressCompoent");
 const pinyin = require('pinyin');
 
@@ -18,12 +18,14 @@ class CityHandle extends AddressComponent {
                 case "guess":
                     // console.log(this);
                     const city = await this.getCityName(ctx);
-                    console.log(city);
+                    cityInfo = await Cities.cityGuess(city);
+                    console.log(cityInfo);
+
 
                     // console.log(CityHandle());
                     // const city = await this.getName();
                     // console.log(city);
-                    cityInfo = city;
+                    // cityInfo = city;
 
                     break;
                 case "hot":
